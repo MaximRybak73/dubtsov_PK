@@ -15,31 +15,7 @@
             <div class="text">RybolovClub73</div>
             <ul>
                 <li>
-                    <a href="index2.php">Главная</a>
-                </li>
-
-                <li>
-                    <a href="autentification2.php">Войти</a>
-                </li>
-
-                <li>
-                    <a href="products2.php">Магазин</a>
-                </li>
-
-                <li>
-                    <a href="infoFish2.php">Факты о рыбе</a>
-                </li>
-
-                <li>
-                    <a href="basket2.php">Моя корзина</a>
-                </li>
-
-                <li>
-                    <a href="feedback.php">Обратная связь</a>
-                </li>
-
-                <li>
-                    <a href="index.php">Выход</a>
+                    <a href="index.php">Назад</a>
                 </li>
             </ul>
         </nav>

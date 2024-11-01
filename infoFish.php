@@ -23,19 +23,7 @@ $current_page = 'home';
             <div class="text">RybolovClub73</div>
             <ul>
                 <li>
-                    <a href="index.php">Главная</a>
-                </li>
-
-                <li>
-                    <a href="autentification.php">Войти</a>
-                </li>
-
-                <li>
-                    <a href="products.php">Магазин</a>
-                </li>
-
-                <li>
-                    <a href="infoFish.php">Факты о рыбе</a>
+                    <a href="index.php">Назад</a>
                 </li>
             </ul>
         </nav>

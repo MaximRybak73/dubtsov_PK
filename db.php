@@ -1,8 +1,8 @@
 <?php
 define('DB_HOST', 'localhost'); //Адрес
-define('DB_USER', 'rybolocl_fishing'); //Имя пользователя
-define('DB_PASSWORD', 'AlmaZ2207205'); //Пароль
-define('DB_NAME', 'rybolocl_fishing'); //Имя БД
+define('DB_USER', 'root'); //Имя пользователя
+define('DB_PASSWORD', ''); //Пароль
+define('DB_NAME', 'lab5_data'); //Имя БД
 
 
 

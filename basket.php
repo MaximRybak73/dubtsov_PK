@@ -13,52 +13,45 @@
     <div class="container">
         <nav class="nav">
             <div class="text">RybolovClub73</div>
-            <ul>
-                <li>
-                    <a href="index.php">Главная</a>
-                </li>
-
-                <li>
-                    <a href="autentification.php">Войти</a>
-                </li>
-
-                <li>
-                    <a href="products.php">Магазин</a>
-                </li>
-
-                <li>
-                    <a href="infoFish.php">Факты о рыбе</a>
-                </li>
-            </ul>
         </nav>
     </div>
 </header>
 
 <?php
-$title = "Моя корзина";
-$current_page = "basket";
+session_start();
 include("db.php");
 
-// Проверяем, были ли выбраны товары
-if (isset($_POST['products'])) {
-    $selected_products = $_POST['products'];
-    echo '<br><h1>Список выбранных товаров</h1>';
-    echo '<ul class="basket">'; // Изменяем на <ul> для ненумерованного списка
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+    $user_id = $_SESSION['user_id'];
 
-    // Перебираем выбранные товары
-    foreach ($selected_products as $product_id) {
-        // Выполняем запрос к базе данных для получения информации о каждом товаре по ID
-        $result = mysqli_query($mysql, "SELECT * FROM `termsproducts` WHERE id = " . intval($product_id));
-        if ($row = mysqli_fetch_assoc($result)) {
-            echo '<li>' . $row['name'] . '</li>'; // Отображаем название товара в списке
-        }
+    foreach ($_POST['products'] as $product_id) {
+        $query = "INSERT INTO basket (user_id, product_id) VALUES ($user_id, $product_id)";
+        mysqli_query($mysql, $query);
     }
 
-    echo '</ul>'; // Закрываем ненумерованный список
+    $query = "SELECT termsproducts.name, termsproducts.definition, termsproducts.img 
+              FROM basket 
+              JOIN termsproducts ON basket.product_id = termsproducts.id 
+              WHERE basket.user_id = $user_id";
+    $result = mysqli_query($mysql, $query);
+
+    echo '<h2>Моя корзина</h2>';
+    echo '<table>';
+    echo '<tr><th>Товар</th><th>Описание</th><th>Изображение</th></tr>';
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<tr>';
+        echo '<td>' . $row['name'] . '</td>';
+        echo '<td>' . $row['definition'] . '</td>';
+        echo '<td><img src="Data/img/' . $row['img'] . '" alt="' . $row['name'] . '" /></td>';
+        echo '</tr>';
+    }
+    echo '</table>';
 } else {
-    echo '<p>Вы не выбрали ни одного товара.</p>';
+    echo 'Пожалуйста, войдите в систему, чтобы просмотреть корзину.';
 }
 ?>
+
 
 <a href="products.php" class="btn">Вернуться к товарам</a>
 </body>

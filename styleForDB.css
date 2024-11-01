@@ -141,3 +141,31 @@ td img:hover {
     margin-left: 15px;
     margin-right: auto;
 }
+
+.product-container {
+    position: relative;
+    display: inline-block;
+}
+
+.details-btn {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f78f3f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.product-container:hover .details-btn {
+    display: block;
+}
+
+.aboutProduct {
+    margin-left: 15px;
+}

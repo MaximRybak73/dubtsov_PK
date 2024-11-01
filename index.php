@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "RybolovClub73";
 $current_page = 'home';
 ?>
@@ -22,21 +23,55 @@ $current_page = 'home';
         <nav class="nav">
             <div class="text">RybolovClub73</div>
             <ul>
-                <li>
-                    <a href="index.php">Главная</a>
-                </li>
+                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
+                    <li>
+                        <a href="index.php">Главная</a>
+                    </li>
 
-                <li>
-                    <a href="autentification.php">Войти</a>
-                </li>
+                    <li>
+                        <a href="autentification.php">Войти</a>
+                    </li>
 
-                <li>
-                    <a href="products.php">Магазин</a>
-                </li>
+                    <li>
+                        <a href="products.php">Магазин</a>
+                    </li>
 
-                <li>
-                    <a href="infoFish.php">Факты о рыбе</a>
-                </li>
+                    <li>
+                        <a href="infoFish.php">Факты о рыбе</a>
+                    </li>
+
+                    <li>
+                        <a href="basket.php">Моя корзина</a>
+                    </li>
+
+                    <li>
+                        <a href="feedback.php">Обратная связь</a>
+                    </li>
+
+                    <li>
+                        <a href="index.php">Выход</a>
+                    </li>
+
+                <?php else: ?>
+                    <li>
+                        <a href="index.php">Главная</a>
+                    </li>
+
+                    <li>
+                        <a href="autentification.php">Войти</a>
+                    </li>
+
+                    <li>
+                        <a href="products.php">Магазин</a>
+                    </li>
+
+                    <li>
+                        <a href="infoFish.php">Факты о рыбе</a>
+                    </li>
+                    
+                <?php endif; ?>
+
+
             </ul>
         </nav>
     </div>
