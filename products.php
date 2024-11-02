@@ -103,7 +103,7 @@ if ($result) {
     endif;
     echo '</table>';
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']):
-        echo '<br><button type="submit" class="btn">Перейти в корзину</button>';
+        echo '<br><button type="submit" class="btn">Добавить и перейти в корзину</button>';
     endif;
     echo '</form>'; // Закрываем форму
 } else {

@@ -12,7 +12,9 @@ $title = "RybolovClub73";
     <link href="forAutent.css" rel="stylesheet" type="text/css" />
     <link href="images/icon.webp" rel="shortcut icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Macondo:regular" rel="stylesheet" />
-    <title><?php echo $title; ?></title>
+    <title>
+        <?php echo $title; ?>
+    </title>
     <style>
         .btn {
             display: inline-block;
@@ -25,7 +27,7 @@ $title = "RybolovClub73";
             border-radius: 3px;
             transition: background-color 0.3s;
         }
-        
+
         .btn:hover {
             background-color: #45a049;
         }
@@ -63,11 +65,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = mysqli_fetch_assoc($result);
 
 
-        if ($password == $user['password']) { 
+        if ($password == $user['password']) {
             // Устанавливаем сессионные переменные
             $_SESSION['logged_in'] = true;
             $_SESSION['user_id'] = $user['id'];
-            if ($user['username'] == 'admin'){
+            if ($user['username'] == 'admin') {
                 $_SESSION['isadmin'] = true;
             } else {
                 $_SESSION['isadmin'] = false;
@@ -89,33 +91,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8" />
     <link href="forAutent.css" rel="stylesheet" type="text/css" />
     <link href="images/icon.webp" rel="shortcut icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Macondo:regular" rel="stylesheet" />
-    <title><?php echo $title?></title>
+    <title>
+        <?php echo $title ?>
+    </title>
 </head>
+
 <body>
+    <h2 style="text-align: center; margin-bottom: 15px;">Войти</h2>
     <form action="autentification.php" method="post">
         <label for="user_name">Введите логин:</label>
         <input type="text" name="user_name" placeholder="login" maxlength="15" id="user_name" required><br><br>
 
         <label for="password">Введите пароль:</label>
         <input type="password" name="password" placeholder="password" required><br><br>
-
-        <label for="checkbox">Запомнить меня:</label>
-        <input type="checkbox" name="remember"><br><br>
-
         <input type="submit" value="Войти">
     </form>
 
-    <p>Нет аккаунта? <a href="register.php" class="btn">Зарегистрируйтесь</a></p>
+    <p style="text-align: center; margin-top: 15px;">Нет аккаунта? <a href="register.php"
+            class="btn">Зарегистрируйтесь</a></p>
 
     <?php if ($message): ?>
-        <p style="color: red;"><?php echo $message; ?></p>
+        <p style="color: red;">
+            <?php echo $message; ?>
+        </p>
     <?php endif; ?>
-    
+
     <?php include "footer.php"; ?>
 </body>
+
 </html>

@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $message = "Ошибка при регистрации. Попробуйте еще раз.";
         }
     } else {
-        $message = "Пользователь с таким именем или email уже существует!";
+        $message = "Пользователь с таким логином или email уже существует!";
     }
 }
 ?>
@@ -78,22 +78,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title><?php echo $title; ?></title>
 </head>
 <body>
-    <h2>Регистрация</h2>
-    <form action="register.php" method="post">
-        <label for="username">Имя пользователя:</label>
+    <h2 style="text-align: center;">Регистрация</h2>
+    <br></br><form action="register.php" method="post">
+        <label for="username">Придумайте логин:</label>
         <input type="text" name="username" id="username" required><br><br>
 
-        <label for="password">Пароль:</label>
+        <label for="password">Придумайте пароль:</label>
         <input type="password" name="password" id="password" required><br><br>
 
-        <label for="email">Email:</label>
+        <label for="email">Введите Email:</label>
         <input type="email" name="email" id="email" required><br><br>
 
         <input type="submit" value="Зарегистрироваться" class="btn">
     </form>
 
     <?php if ($message): ?>
-        <p style="color: green;"><?php echo $message; ?></p>
+        <p style="color: blue; text-align:center; margin-top:15px;"><?php echo $message; ?></p>
     <?php endif; ?>
 
 </body>

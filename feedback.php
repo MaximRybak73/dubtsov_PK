@@ -58,7 +58,7 @@ $current_page = 'feedback';
             <option>Предложение</option>
         </select><br><br>
 
-        <textarea placeholder="Введите текст сообщения:"></textarea><br><br>
+        <textarea placeholder="Введите текст сообщения:" style="margin-left: 15px;"></textarea><br><br>
 
         <input type="file"><br><br>
 

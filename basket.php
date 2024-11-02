@@ -32,36 +32,41 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
     }
 
     // Обработка запроса на удаление товара из корзины
-    if (isset($_POST['delete_product_id'])) {
-        $delete_product_id = $_POST['delete_product_id'];
-        $delete_query = "DELETE FROM basket WHERE user_id = $user_id AND product_id = $delete_product_id";
+    if (isset($_POST['delete_basket_id'])) {
+        $delete_basket_id = $_POST['delete_basket_id'];
+        $delete_query = "DELETE FROM basket WHERE id = $delete_basket_id";
         mysqli_query($mysql, $delete_query);
     }
+    
 
-    $query = "SELECT termsproducts.id, termsproducts.name, termsproducts.definition, termsproducts.img 
-              FROM basket 
-              JOIN termsproducts ON basket.product_id = termsproducts.id 
-              WHERE basket.user_id = $user_id";
+    $query = "SELECT basket.id as basket_id, termsproducts.id, termsproducts.name, termsproducts.definition, termsproducts.img 
+          FROM basket 
+          JOIN termsproducts ON basket.product_id = termsproducts.id 
+          WHERE basket.user_id = $user_id";
     $result = mysqli_query($mysql, $query);
+    if (mysqli_num_rows($result) >= 1) {
 
-    echo '<br><h2>Моя корзина</h2>';
-    echo '<table>';
-    echo '<tr><th>Товар</th><th>Описание</th><th>Изображение</th><th>Действие</th></tr>';
+        echo '<br><h2 style="text-align: center; margin-left: 15px;">Моя корзина</h2>';
+        echo '<table>';
+        echo '<tr><th>Товар</th><th>Описание</th><th>Изображение</th><th>Действие</th></tr>';
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo '<tr>';
-        echo '<td>' . $row['name'] . '</td>';
-        echo '<td>' . $row['definition'] . '</td>';
-        echo '<td><img src="Data/img/' . $row['img'] . '" alt="' . $row['name'] . '" /></td>';
-        echo '<td>';
-        echo '<form method="post" action="basket.php">';
-        echo '<input type="hidden" name="delete_product_id" value="' . $row['id'] . '">';
-        echo '<button type="submit">Удалить</button>';
-        echo '</form>';
-        echo '</td>';
-        echo '</tr>';
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<tr>';
+            echo '<td>' . $row['name'] . '</td>';
+            echo '<td>' . $row['definition'] . '</td>';
+            echo '<td><img src="Data/img/' . $row['img'] . '" alt="' . $row['name'] . '" /></td>';
+            echo '<td>';
+            echo '<form method="post" action="basket.php">';
+            echo '<input type="hidden" name="delete_basket_id" value="' . $row['basket_id'] . '">';
+            echo '<button type="submit">Удалить</button>';
+            echo '</form>';
+            echo '</td>';
+            echo '</tr>';
+        }        
+        echo '</table>';
+    } else {
+        echo '<h3 style="margin-left: 15px; margin-top: 15px; margin-bottom: 15px;">Вы не добавили ни одного товара в корзину.</h3>';
     }
-    echo '</table>';
 } else {
     echo 'Пожалуйста, войдите в систему, чтобы просмотреть корзину.';
 }
