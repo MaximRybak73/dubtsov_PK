@@ -16,7 +16,7 @@
             <nav class="nav">
                 <div class="text">RybolovClub73</div>
                 <ul>
-                    <li><a href="index.php">Главная</a></li>
+                    <li><a href="products.php">Назад</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,6 +30,9 @@
 
             <label for="countt">Количество:</label>
             <input type="text" id="countt" name="countt"><br><br>
+
+            <label for="specifications">Характеристики:</label>
+            <textarea id="specifications" name="specifications"></textarea><br><br>
 
             <label for="definition">Подробности:</label>
             <textarea id="definition" name="definition"></textarea><br><br>

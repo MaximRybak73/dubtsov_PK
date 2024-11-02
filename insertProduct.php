@@ -23,27 +23,7 @@ $current_page = 'home';
             <div class="text">RybolovClub73</div>
             <ul>
                 <li>
-                    <a href="index2.php">Главная</a>
-                </li>
-
-                <li>
-                    <a href="autentification.php">Войти</a>
-                </li>
-
-                <li>
-                    <a href="products2.php">Магазин</a>
-                </li>
-
-                <li>
-                    <a href="infoFish2.php">Факты о рыбе</a>
-                </li>
-
-                <li>
-                    <a href="basket2.php">Моя корзина</a>
-                </li>
-
-                <li>
-                    <a href="feedback.php">Обратная связь</a>
+                    <a href="products.php">Назад</a>
                 </li>
             </ul>
         </nav>
@@ -52,19 +32,19 @@ $current_page = 'home';
 <?php
 include("db.php");
 $current_page='addproducts';
-include("header.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $definition = $_POST['definition'];
     $image = $_FILES['image']['name'];
     $countt = $_POST['countt'];
+    $specifications = $_POST['specifications'];
 
     // Загрузка изображения в папку
     move_uploaded_file($_FILES['image']['tmp_name'], 'Data/img/' . $image);
 
     // SQL-запрос для вставки термина, определения и изображения
-    $query = "INSERT INTO `termsproducts` (name, definition, img, count) VALUES ('$name', '$definition', '$image', '$countt')";
+    $query = "INSERT INTO `termsproducts` (name, definition, specifications, img, count) VALUES ('$name', '$definition', '$specifications', '$image', '$countt')";
 
     if (mysqli_query($mysql, $query)) {
         echo "Новый товар успешно добавлен!";

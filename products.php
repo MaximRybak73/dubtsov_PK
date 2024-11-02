@@ -114,12 +114,14 @@ if ($result) {
 <script>
     // Функция для перехода на страницу с подробной информацией о товаре
     function viewDetails(productId) {
+        event.preventDefault();
         window.location.href = "aboutProduct.php?id=" + productId;
     }
 </script>
-
-<br>
-<a href="addProduct.php" class="btn">Добавить новый товар</a>
+<?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] && isset($_SESSION['isadmin']) && $_SESSION['isadmin']): ?>
+    <br>
+    <a href="addProduct.php" class="btn">Добавить новый товар</a>
+<?php endif; ?>
 </body>
 <?php include('footer.php'); ?>
 

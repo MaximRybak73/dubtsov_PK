@@ -31,11 +31,6 @@ a {
     
 }
 
-a.selected_menu {
-    color:deepskyblue; /* Цвет ссылки после выбора (класс selected) */
-}
-
-
 header, footer {
     width: 100%;
     background-color: #fff;
@@ -110,4 +105,14 @@ form {
     border: 3px solid black;
     background-color: #fff;
     padding: 5px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50 !important;
+    color: white !important;
+    text-decoration: none !important;
+    margin-left: 15px !important;
+    margin-right: auto !important;
 }
