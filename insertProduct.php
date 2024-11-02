@@ -43,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Загрузка изображения в папку
     move_uploaded_file($_FILES['image']['tmp_name'], 'Data/img/' . $image);
 
-    // SQL-запрос для вставки термина, определения и изображения
     $query = "INSERT INTO `termsproducts` (name, definition, specifications, img, count) VALUES ('$name', '$definition', '$specifications', '$image', '$countt')";
 
     if (mysqli_query($mysql, $query)) {

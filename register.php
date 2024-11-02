@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <?php if ($message): ?>
         <p style="color: blue; text-align:center; margin-top:15px;"><?php echo $message; ?></p>
-    <?php endif; ?>
+    <?php endif; ?><br><br><br><br><br><br><br><br><br>
 
 </body>
 <?php include('footer.php'); ?>

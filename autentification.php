@@ -74,8 +74,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 $_SESSION['isadmin'] = false;
             }
-
-            // Перенаправление на главную страницу
             header("Location: index.php");
             exit();
         } else {
@@ -120,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p style="color: red;">
             <?php echo $message; ?>
         </p>
-    <?php endif; ?>
+    <?php endif; ?><br><br><br><br><br><br><br><br><br>
 
     <?php include "footer.php"; ?>
 </body>

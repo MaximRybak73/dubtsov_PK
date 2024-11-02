@@ -73,7 +73,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
 ?>
 
 
-<a href="products.php" class="btn">Вернуться к товарам</a>
+<a href="products.php" class="btn">Вернуться к товарам</a><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 <?php include('footer.php'); ?>
 

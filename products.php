@@ -105,7 +105,7 @@ if ($result) {
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']):
         echo '<br><button type="submit" class="btn">Добавить и перейти в корзину</button>';
     endif;
-    echo '</form>'; // Закрываем форму
+    echo '</form>';
 } else {
     echo 'Ошибка при извлечении данных: ' . mysqli_error($mysql);
 }
