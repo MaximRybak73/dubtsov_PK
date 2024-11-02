@@ -1,6 +1,5 @@
 <?php
 $title = "RybolovClub73";
-$current_page = 'home';
 ?>
 
 <!DOCTYPE html>
