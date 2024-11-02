@@ -1,7 +1,5 @@
 <?php
 session_start();
-$title = "RybolovClub73";
-$current_page = 'home';
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +12,7 @@ $current_page = 'home';
     <link href="images/icon.webp" rel="shortcut icon" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Macondo:regular" rel="stylesheet">
     <title>
-        <?php echo $title; ?>
+        RybolovClub73
     </title>
     <style>
         .slideshow-container {

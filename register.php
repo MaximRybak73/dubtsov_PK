@@ -70,13 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <title><?php echo $title; ?></title>
-</head>
 <body>
     <h2 style="text-align: center;">Регистрация</h2>
     <br></br><form action="register.php" method="post">

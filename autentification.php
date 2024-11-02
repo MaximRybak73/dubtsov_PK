@@ -1,56 +1,7 @@
 <?php
 session_start();
-$title = "RybolovClub73";
-?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="Сайт рыболовного магазина" />
-    <link href="forAutent.css" rel="stylesheet" type="text/css" />
-    <link href="images/icon.webp" rel="shortcut icon" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css?family=Macondo:regular" rel="stylesheet" />
-    <title>
-        <?php echo $title; ?>
-    </title>
-    <style>
-        .btn {
-            display: inline-block;
-            padding: 4px 16px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            margin-left: 15px;
-            margin-right: auto;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-
-<header>
-    <div class="container">
-        <nav class="nav">
-            <div class="text">RybolovClub73</div>
-            <ul>
-                <li>
-                    <a href="index.php">Назад</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<?php
 include "db.php";  // Подключение к базе данных
 
-$title = "RybolovClub73";
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -84,21 +35,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Неправильный логин или пароль!";
         $_SESSION['logged_in'] = false;
     }
+
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Сайт рыболовного магазина" />
     <link href="forAutent.css" rel="stylesheet" type="text/css" />
     <link href="images/icon.webp" rel="shortcut icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Macondo:regular" rel="stylesheet" />
     <title>
-        <?php echo $title ?>
+        RybolovClub73
     </title>
+    <style>
+        .btn {
+            display: inline-block;
+            padding: 4px 16px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            margin-right: auto;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
+
+<header>
+    <div class="container">
+        <nav class="nav">
+            <div class="text">RybolovClub73</div>
+            <ul>
+                <li>
+                    <a href="index.php">Назад</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
 
 <body>
     <h2 style="text-align: center; margin-bottom: 15px;">Войти</h2>
@@ -115,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             class="btn">Зарегистрируйтесь</a></p>
 
     <?php if ($message): ?>
-        <p style="color: red;">
+        <p style="color: red; text-align:center;">
             <?php echo $message; ?>
         </p>
     <?php endif; ?><br><br><br><br><br><br><br><br><br>
